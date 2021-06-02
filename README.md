@@ -39,7 +39,7 @@ info fileName;
 #### Optional: Rename the File
 If you wish to rename the file, this will be helpful to you. Otherwise, you can skip to [3.](#3-upload-file-to-zoho-workdrive)
 
-To rename the file, you need to get the extension first. Since you already have the file name, all you need is some basic string manipulation to get the extension.
+To rename the file, you need to get the file extension. Since you already have the file name, all you need is some basic string manipulation to get the extension.
 
 ```javascript
 fileExt = fileName.right(fileName.len() - fileName.lastIndexOf(".") - 1);
