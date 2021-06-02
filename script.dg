@@ -1,0 +1,26 @@
+// Download the File
+fileid = "xxxxxxxxxxxxxxxxxxxxxxxxx";
+mp = Map();
+mp.put("Accept","application/vnd.api+json");
+getFile = invokeurl
+[
+	url :"https://workdrive.zoho.com/api/v1/download/" + fileid
+	type :GET
+	headers:mp
+	connection:"zohoworkdrive_connection"
+];
+info getFile;
+
+// Get the File Name
+fileName = getFile.getFileName();
+info fileName;
+
+// Rename the File (if necessary)
+fileExt = fileName.right(fileName.len() - fileName.lastIndexOf(".") - 1);
+fileName = "New File Name" + fileExt;
+info fileName;
+
+// Upload File to WorkDrive
+folderid = "xxxxxxxxxxxxxxxxxxxxxxxxx";
+uploadFile = zoho.workdrive.uploadFile(getFile, folderid, fileName, false, "zohoworkdrive_connection");
+info uploadFile;
