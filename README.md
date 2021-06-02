@@ -41,28 +41,20 @@ If you wish to rename the file, this will be helpful to you. Otherwise, you can 
 
 To rename the file, you need to get the file extension. Since you already have the file name, all you need is some basic string manipulation to get the extension.
 
-Then, set your new file name with the file extension at the back.
+Then, redefine the *fileName* variable with your new file name plus the file extension at the back.
 
 ```javascript
 fileExt = fileName.right(fileName.len() - fileName.lastIndexOf(".") - 1);
-newFileName = "New File Name" + fileExt;
-info newFileName;
+fileName = "New File Name" + fileExt;
+info fileName;
 ```
 
 #### 3. Upload the File to Zoho WorkDrive
 
-If you're not planning to rename the file, 
+Finally, upload the file to WorkDrive with the Deluge integration task.
 ```javascript
 folderid = "xxxxxxxxxxxxxxxxxxxxxxxxx";
 uploadFile = zoho.workdrive.uploadFile(getFile, folderid, fileName, false, "zohoworkdrive_connection");
 info uploadFile;
 ```
-
-If you're renaming the file,
-```javascript
-folderid = "xxxxxxxxxxxxxxxxxxxxxxxxx";
-uploadFile = zoho.workdrive.uploadFile(getFile, folderid, newFileName, false, "zohoworkdrive_connection");
-info uploadFile;
-```
-
 *Note: Replace "folderid" and "zohoworkdrive_connection" accordingly*
