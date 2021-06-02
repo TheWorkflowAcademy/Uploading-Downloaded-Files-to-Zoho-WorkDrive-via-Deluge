@@ -41,9 +41,12 @@ If you wish to rename the file, this will be helpful to you. Otherwise, you can 
 
 To rename the file, you need to get the file extension. Since you already have the file name, all you need is some basic string manipulation to get the extension.
 
+Then, set your new file name with the file extension at the back.
+
 ```javascript
 fileExt = fileName.right(fileName.len() - fileName.lastIndexOf(".") - 1);
-info fileExt;
+newFileName = "New File Name" + fileExt;
+info newFileName;
 ```
 
 #### 3. Upload the File to Zoho WorkDrive
@@ -58,7 +61,7 @@ info uploadFile;
 If you're renaming the file,
 ```javascript
 folderid = "xxxxxxxxxxxxxxxxxxxxxxxxx";
-uploadFile = zoho.workdrive.uploadFile(getFile, folderid, "New File Name" + fileExt, false, "zohoworkdrive_connection");
+uploadFile = zoho.workdrive.uploadFile(getFile, folderid, newFileName, false, "zohoworkdrive_connection");
 info uploadFile;
 ```
 
